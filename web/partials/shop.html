@@ -1,23 +1,57 @@
 <!-- Example row of columns -->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-2">
-      <ul class="list-unstyled leftScroll">
-        <li ng-click="prev()"><span>Prev</span></li>
-        <li toggle="leftImg" ng-class="{'cb-active': 1}" ng-repeat="leftImage in leftImages" ng-click="getLeftImg( leftImage.id );"><img class="img-responsive" src="uploads/{{leftImage.img}}"></li>
-        <li ng-click="next()"><span>Next</span></li>
-      </ul>
+    <div class="hidden-xs">
+      <div class="col-xs-2 col-sm-2">
+        <ul class="list-unstyled leftScroll">
+          <li ng-click="prev()"><span>Prev</span></li>
+          <li toggle="leftImg" ng-class="{'cb-active': 1}" ng-repeat="leftImage in leftImages" ng-click="getLeftImg( leftImage.id );"><img class="img-responsive" src="uploads/{{leftImage.img}}"></li>
+          <li ng-click="next()"><span>Next</span></li>
+        </ul>
+      </div>
+      <div class="col-xs-10 col-sm-10">
+        <img class="img-responsive" src="uploads/main/{{SelectedImg}}">  
+      </div>
+      <div class="col-sm-10 col-sm-offset-2 DocumentList">
+        <ul class="list-inline bottomScroll">
+          <li ng-click="prev()"><span>Prev</span></li>
+          <li toggle="bottomImg" ng-repeat="bottomImage in bottomImages" ng-click="getBottomImg( bottomImage.id )"><img class="img-responsive" src="uploads/{{bottomImage.img}}"></li>
+          <li ng-click="next()"><span>Next</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="col-sm-10">
-      <img class="img-responsive" src="uploads/main/{{SelectedImg}}">  
-    </div>
-    <div class="col-sm-10 col-sm-offset-2 DocumentList">
-      <ul class="list-inline bottomScroll">
-        <li ng-click="prev()"><span>Prev</span></li>
-        <li toggle="bottomImg" ng-repeat="bottomImage in bottomImages" ng-click="getBottomImg( bottomImage.id )"><img class="img-responsive" src="uploads/{{bottomImage.img}}"></li>
-        <li ng-click="next()"><span>Next</span></li>
-      </ul>
+
+    <div class="visible-xs">
+      <div class="col-xs-12">
+        <div id="left_img" ng-show="showImgMob == '0' && showPrevMob == '0'">
+          <div>
+            <ul class="list-unstyled">
+          <li toggle="leftImg" ng-class="{'cb-active': 1}" ng-repeat="leftImage in leftImages" ng-click="getLeftImg( leftImage.id );"><img class="img-responsive" src="uploads/{{leftImage.img}}"></li>
+            </ul>
+          </div>
+
+        </div>
+        <div id="bottom_img" ng-show="showImgMob == '1' && showPrevMob == '0'">
+          <div  class="mar_b15">
+            <ul class="list-unstyled">
+              <li toggle="bottomImg" ng-repeat="bottomImage in bottomImages" ng-click="getBottomImg( bottomImage.id )"><img class="img-responsive" src="uploads/{{bottomImage.img}}"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="preview_img" ng-show="showPrevMob">
+          <div  class="mar_b15">
+            <img class="img-responsive" src="uploads/main/{{SelectedImg}}">  
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-default" ng-click="showPrev()">Image Set 1</button>
+          <button class="btn btn-default" ng-click="showNext()">Image Set 2</button>
+          <button class="btn btn-default" ng-click="showPreview()">Preview</button>
+        </div>
+      </div>  
     </div>
   </div>
-</div>
+
+
 

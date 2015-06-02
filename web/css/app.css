@@ -47,3 +47,7 @@ li[toggle].selected {
 .nav li[toggle].selected {
   border: 2px outset blue;
 }
+
+.mar_b15{
+  margin-bottom: 15px;
+}

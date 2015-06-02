@@ -112,4 +112,46 @@ angular.module('noaknafoCtrl', [])
 
       }
     };
+
+
+    //image manipulation in small screens
+    $scope.showImgMob = 0;
+    $scope.showPrevMob = 0;
+    // $scope.imgBottomMob = 0;
+
+    $scope.showNext = function () {
+      
+      $scope.showPrevMob = 0;
+      $scope.showImgMob = 1;
+      
+    }
+
+    $scope.showPrev = function () {
+      
+      $scope.showPrevMob = 0;
+      $scope.showImgMob = 0;
+      
+    }
+
+    $scope.showPreview = function () {
+      
+      $scope.showPrevMob = 1;
+    }
+
+  }])
+
+/* 
+ * @GenericViewCtrl
+ *
+ */
+  .controller('contactCtrl', [ 'Wizards', '$scope', '$http', '$rootScope', '$route', '$routeParams', function( $scope, $http, $rootScope, $route, $routeParams, Wizards ) {
+
+    console.log('contactctrl');
+
+
+
+
+
+
+
   }]);
