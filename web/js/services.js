@@ -2,14 +2,10 @@
 
 /* Services */
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-var services = angular.module('myApp.services', []);
+angular.module( 'noaknafoServices', ['ngResource'] )
 
-services.value('version', '0.2');
-
-
-
-
-
-
+  .factory( 'Phone', ['$resource', function( $resource ) {
+      // return $resource('phones/:phoneId.json', {}, {
+      //   query: { method:'GET', params:{phoneId:'phones' }, isArray:true }
+      // });
+  }]);
