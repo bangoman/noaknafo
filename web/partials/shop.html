@@ -4,7 +4,7 @@
     <div class="col-sm-2">
       <ul class="list-unstyled leftScroll">
         <li ng-click="prev()"><span>Prev</span></li>
-        <li ng-repeat="leftImage in leftImages" ng-click="getLeftImg( leftImage.id );"><img class="img-responsive" src="uploads/{{leftImage.img}}"></li>
+        <li toggle="leftImg" ng-class="{'cb-active': 1}" ng-repeat="leftImage in leftImages" ng-click="getLeftImg( leftImage.id );"><img class="img-responsive" src="uploads/{{leftImage.img}}"></li>
         <li ng-click="next()"><span>Next</span></li>
       </ul>
     </div>
@@ -14,7 +14,7 @@
     <div class="col-sm-10 col-sm-offset-2 DocumentList">
       <ul class="list-inline bottomScroll">
         <li ng-click="prev()"><span>Prev</span></li>
-        <li ng-repeat="bottomImage in bottomImages" ng-click="getBottomImg( bottomImage.id )"><img class="img-responsive" src="uploads/{{bottomImage.img}}"></li>
+        <li toggle="bottomImg" ng-repeat="bottomImage in bottomImages" ng-click="getBottomImg( bottomImage.id )"><img class="img-responsive" src="uploads/{{bottomImage.img}}"></li>
         <li ng-click="next()"><span>Next</span></li>
       </ul>
     </div>

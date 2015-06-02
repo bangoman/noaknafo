@@ -3,12 +3,23 @@
 /* Controllers */
 
 angular.module('noaknafoCtrl', [])
+  
+/* 
+ * @GenericViewCtrl
+ *
+ */
+  .controller('GenericViewCtrl', [ '$scope', '$http', '$rootScope', '$route', '$routeParams', function( $scope, $http, $rootScope, $route, $routeParams ) {
 
-  .controller('GenericViewCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+    $rootScope.activeTab = $route.current.activeTab; 
   }])
 
-  .controller('shopCtrl', [ '$scope', '$http', '$rootScope', '$routeParams', function( $scope, $http, $rootScope, $routeParams ) {
+/* 
+ * @shopCtrl
+ *
+ */
+  .controller('shopCtrl', [ '$scope', '$http', '$rootScope', '$route', '$routeParams', function( $scope, $http, $rootScope, $route, $routeParams ) {
 
+    $rootScope.activeTab = $route.current.activeTab; 
     $rootScope.SelectedImg = '10.jpg';
     $rootScope.leftImgId = 0;
     $rootScope.bottomImgId = 0;
