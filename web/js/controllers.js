@@ -33,6 +33,14 @@ angular.module('noaknafoCtrl', [])
       {'id': '3',
        'img': '3.jpg'},
       {'id': '4',
+       'img': '4.jpg'},
+       {'id': '1',
+       'img': '1.jpg'},
+      {'id': '2',
+       'img': '2.jpg'},
+      {'id': '3',
+       'img': '3.jpg'},
+      {'id': '4',
        'img': '4.jpg'}
     ];
 
@@ -41,6 +49,14 @@ angular.module('noaknafoCtrl', [])
        'img': '1.jpg'},
       {'id': '2',
        'img': '2.jpg'},
+      {'id': '1',
+       'img': '1.jpg'},
+      {'id': '2',
+       'img': '2.jpg'},
+      {'id': '3',
+       'img': '3.jpg'},
+      {'id': '4',
+       'img': '4.jpg'} 
     ];
 
     $scope.displayImages = [
@@ -54,14 +70,71 @@ angular.module('noaknafoCtrl', [])
       {'leftImgId': '4','BottomImgIid': '2','img': '8.jpg'},
     ];
 
-    $scope.prev = function () {
+    $scope.scrollTop = function () {
+
+      var element = angular.element( document.querySelector( '#scroll_list' ) );  
+      var scroll_cover = angular.element( document.querySelector( '.scroll_cover' ) );
+
+      var top = element[0].offsetTop;
+      // console.log( scroll_cover[0].clientHeight );
+
+      // console.log( element[0].offsetTop.offsetHeight);
+
+      // console.log('sssssss:',scroll_cover[0].clientHeight);
+      var clientHeight = scroll_cover[0].clientHeight;
+
+      var nodeLength = element[0].children.length;
+      if ( nodeLength > 0) {
+        
+        var nodeHeight = element[0].children[0].clientHeight;
+        var totalNodeH = nodeLength * nodeHeight;
+
+        var nh = totalNodeH - clientHeight; 
+        console.log(top +'::' + nh );
+
+        if ( (top * -1 ) < ( totalNodeH - ( clientHeight ) ) ) {
+
+          top = top - nodeHeight;
+          // console.log(top);
+          element.css('top',top+'px');
+        };
+
+      };
+
+      // element.css('top','-65px');
       
-      alert("prev pressed");
     }
 
-    $scope.next = function () {
+    $scope.scrollBottom = function () {
 
-      alert("next pressed");
+      var element = angular.element( document.querySelector( '#scroll_list' ) );  
+      var scroll_cover = angular.element( document.querySelector( '.scroll_cover' ) );
+
+      var top = element[0].offsetTop;
+      // console.log( scroll_cover[0].clientHeight );
+
+      // console.log( element[0].offsetTop.offsetHeight);
+
+      // console.log('sssssss:',scroll_cover[0].clientHeight);
+      var clientHeight = scroll_cover[0].clientHeight;
+
+      var nodeLength = element[0].children.length;
+      if ( nodeLength > 0) {
+        
+        var nodeHeight = element[0].children[0].clientHeight;
+        var totalNodeH = nodeLength * nodeHeight;
+
+        var nh = totalNodeH - clientHeight; 
+        console.log(top +'::' + nh );
+
+        if ( top < ( -1 * clientHeight / 4 ) ) {
+
+          top = top + nodeHeight;
+          // console.log(top);
+          element.css('top',top+'px');
+        };
+
+      };
     }
 
     $scope.getLeftImg = function ( id ) {
