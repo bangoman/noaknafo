@@ -21,6 +21,8 @@ angular.module('noaknafoCtrl', [])
 
     $rootScope.activeTab = $route.current.activeTab; 
     $rootScope.SelectedImg = '10.jpg';
+    $rootScope.SelectedImgMob = '10.jpg';
+
     $rootScope.leftImgId = 0;
     $rootScope.bottomImgId = 0;
     $scope.lastForm = {};
@@ -49,14 +51,14 @@ angular.module('noaknafoCtrl', [])
        'img': '1.jpg'},
       {'id': '2',
        'img': '2.jpg'},
-      {'id': '1',
-       'img': '1.jpg'},
-      {'id': '2',
-       'img': '2.jpg'},
       {'id': '3',
        'img': '3.jpg'},
       {'id': '4',
-       'img': '4.jpg'} 
+       'img': '4.jpg'},
+      {'id': '5',
+       'img': '1.jpg'},
+      {'id': '6',
+       'img': '2.jpg'} 
     ];
 
     $scope.displayImages = [
@@ -147,12 +149,20 @@ angular.module('noaknafoCtrl', [])
     $scope.getBottomImg = function ( id ) {
      
       $rootScope.bottomImgId = id;
-      $scope.get_image();
+      $scope.get_mob_image();
+    }
+
+    $scope.get_mob_image = function () {
+
+      if ( $rootScope.bottomImgId ) {
+
+        
+        $rootScope.SelectedImgMob = $scope.get_image_by_id( $scope.bottomImages, $rootScope.bottomImgId );
+      }
     }
 
     $scope.get_image = function() {
       
-      // console.log($rootScope.leftImgId + '::' + $rootScope.bottomImgId );
       // have to cal api to get the right image here
       // for test: using if condition
 
@@ -185,6 +195,15 @@ angular.module('noaknafoCtrl', [])
 
       }
     };
+
+    $scope.get_image_by_id = function(arr, id) {
+    for (var d = 0, len = arr.length; d < len; d += 1) {
+        if (arr[d].id === id) {
+            return arr[d].img;
+            console.log('sasas', arr[d].img);
+        }
+    }
+}
 
 
     //image manipulation in small screens
