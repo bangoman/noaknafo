@@ -116,9 +116,23 @@ li[toggle].selected {
   overflow: hidden;
   max-height: 400px;
 }
+.scroll_cover_1{
+  overflow: hidden;
+  /*max-width: 400px;*/
+}
 #scroll_list{
   position: inherit;
   top: 0px;
   transition: 600ms ease-out all;
+}
+#scroll_list_1{
+  position: inherit;
+  left: 0px;
+  transition: 600ms ease-out all;
+}
+.btn-lt, .btn-rt{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
 }
 
