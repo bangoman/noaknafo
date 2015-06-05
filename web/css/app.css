@@ -35,12 +35,12 @@ li{
   white-space:nowrap;
 }
 
-li[toggle] {
+li img[toggle]{
   border: 2px outset white;
 
 }
 
-li[toggle].selected {
+li img[toggle].selected {
   border: 2px outset blue;
 }
 
@@ -135,4 +135,7 @@ li[toggle].selected {
   top: 0px;
   bottom: 0px;
 }
-
+#shop_view .img-responsive{
+  margin: auto !important;
+  width: auto !important;
+}
